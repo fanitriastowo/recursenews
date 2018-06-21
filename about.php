@@ -93,7 +93,7 @@
             <h2 class="section-heading">My Career</h2>
             <p class="lead">
               Saya memulai career Software Development secara professional sejak 2014, 
-              saat itu saya masih kuliah semester 6 dan project pertama saya adalah aplikasi desktop pendataan alumni 
+              saat itu saya masih kuliah dan project pertama saya adalah aplikasi desktop pendataan alumni 
               di untuk salah satu SMK di kota Purwokerto dengan berbasis Java Swing. 
               Saat ini saya sedang mengerjakan sistem pendaftaran mahasiswa baru berbasis online dengan terintegrasi 2 bank.
             </p>
