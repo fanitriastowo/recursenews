@@ -171,5 +171,6 @@ code {
 }
 
 .sidebar {
-  padding-bottom: 150%;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
