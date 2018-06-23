@@ -18,7 +18,9 @@
 
 	<div class="row">
 
+
 		<article class="col-9">
+			<h1>Latest News:</h1>
 	  	<?php include 'articles/1-helloworld.html'; ?>
 	  	<?php include 'articles/2-loremipsum.html'; ?>
 	  	<?php include 'articles/3-dolorisamet.html'; ?>
