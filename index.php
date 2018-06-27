@@ -33,9 +33,6 @@
 				<?php include 'template/sidebar.html'; ?>
 			</div>
 
-			<div class="ads">
-				<?php include 'template/ads.html'; ?>
-			</div>
 		</side>
 
 	</div>
