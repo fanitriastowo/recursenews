@@ -28,14 +28,20 @@ echo "<br>";
 echo "<br>";
 echo "<br>";
 
-//$db->get('post1')->save(['title'=>'Lorem Ipsum Dolor']);
+// $post2 = $db->get('post2');
+// echo "<pre>";
+// var_dump($post2);
+// echo "</pre>";
 
-$post1 = $db->get('post1');
+// echo $post2->title;
+// $post2->tanggal = '25 January 2017';
+// $db->save($post2);
+
+$findAll = $db->findAll();
 echo "<pre>";
-var_dump($post1);
+var_dump($findAll);
 echo "</pre>";
 
-echo $post1->title;
 
 echo "<br>";
 echo "<br>";

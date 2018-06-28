@@ -1,7 +1,9 @@
 {
     "__created_at": 1530120372,
-    "__updated_at": 1530120502,
+    "__updated_at": 1530190144,
     "data": {
-        "title": "Lorem Ipsum Dolor"
+        "title": "Lorem Ipsum Dolor",
+        "date": "25 January 2016",
+        "tanggal": "25 January 2016"
     }
 }
