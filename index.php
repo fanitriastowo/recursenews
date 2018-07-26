@@ -1,3 +1,26 @@
+<?php 
+
+require 'config/db.php';
+
+use \Filebase\Database;
+use \Filebase\Format\Json;
+
+// setting the access and configration to your database
+$db = new Database([
+    'dir'            => 'config/db',
+    'backupLocation' => 'config/db/backup',
+    'format'         => Json::class,
+    'cache'          => true,
+    'cache_expires'  => 1800,
+    'pretty'         => true,
+    'safe_filename'  => true,
+    'read_only'      => false
+]); 
+
+$post1 = $db->get('post1');
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +43,11 @@
 
 
 		<article class="col-9">
-			<h1>Latest News:</h1>
-	  	<?php include 'articles/1-helloworld.html'; ?>
+			<h1>Latest Articles</h1>
+	  	<?php echo($post1->tanggal); ?>
+	  	<?php echo($post1->title); ?>
+	  	<?php echo($post1->content); ?>
+
 	  	<?php include 'articles/2-loremipsum.html'; ?>
 	  	<?php include 'articles/3-dolorisamet.html'; ?>
 	  	<?php include 'articles/4-bubbaluba.html'; ?>
