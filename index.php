@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require 'config/db.php';
 
@@ -15,9 +15,9 @@ $db = new Database([
     'pretty'         => true,
     'safe_filename'  => true,
     'read_only'      => false
-]); 
+]);
 
-$post1 = $db->get('post1');
+$janji_programmer = $db->get('janji_programmer');
 ?>
 
 
@@ -33,7 +33,7 @@ $post1 = $db->get('post1');
 </head>
 <body>
 
-<!-- include navbar --> 
+<!-- include navbar -->
 <?php include 'template/navbar.html' ?>;
 
 <!-- Begin page content -->
@@ -41,16 +41,18 @@ $post1 = $db->get('post1');
 
 	<div class="row">
 
-
 		<article class="col-9">
 			<h1>Latest Articles</h1>
-	  	<?php echo($post1->tanggal); ?>
-	  	<?php echo($post1->title); ?>
-	  	<?php echo($post1->content); ?>
 
-	  	<?php include 'articles/2-loremipsum.html'; ?>
-	  	<?php include 'articles/3-dolorisamet.html'; ?>
-	  	<?php include 'articles/4-bubbaluba.html'; ?>
+      <a href="#"><h3 class="mt-5"><?php echo($janji_programmer->title); ?></h3></a>
+      <p class="text-muted">
+        by fanitriastowo -
+        Posted on : <?php echo($janji_programmer->tanggal); ?>. -
+        Kategori : <?php echo($janji_programmer->kategory); ?>
+      </p>
+      <hr>
+      <p class="text-justify"><?php echo($janji_programmer->content); ?></p>
+
 		</article>
 
 		<side class="col-3">
