@@ -3,6 +3,8 @@
 require 'config/db.php';
 
 use \Filebase\Database;
+use \Filebase\Query;
+use \Filebase\QueryLogic;
 use \Filebase\Format\Json;
 
 // setting the access and configration to your database
@@ -10,14 +12,13 @@ $db = new Database([
     'dir'            => 'config/db',
     'backupLocation' => 'config/db/backup',
     'format'         => Json::class,
-    'cache'          => true,
+    'cache'          => false,
     'cache_expires'  => 1800,
     'pretty'         => true,
     'safe_filename'  => true,
     'read_only'      => false
 ]);
-
-$janji_programmer = $db->get('janji_programmer');
+$data = $db->query()->limit(3)->results();
 ?>
 
 
@@ -44,15 +45,18 @@ $janji_programmer = $db->get('janji_programmer');
 		<article class="col-9">
 			<h1>Latest Articles</h1>
 
-      <a href="#"><h3 class="mt-5"><?php echo($janji_programmer->title); ?></h3></a>
-      <p class="text-muted">
-        by fanitriastowo -
-        Posted on : <?php echo($janji_programmer->tanggal); ?>. -
-        Kategori : <?php echo($janji_programmer->kategory); ?>
-      </p>
-      <hr>
-      <p class="text-justify"><?php echo($janji_programmer->content); ?></p>
+      <?php foreach ($data as $key => $value): ?>
 
+        <a href="#"><h3 class="mt-5"><?php echo($value['title']); ?></h3></a>
+        <p class="text-muted">
+          by fanitriastowo -
+          Posted on : <?php echo($value['tanggal']); ?>. -
+          Kategori : <?php echo($value['kategory']); ?>
+        </p>
+        <hr>
+        <p class="text-justify"><?php echo($value['content']); ?></p>
+
+      <?php endforeach; ?>
 		</article>
 
 		<side class="col-3">
