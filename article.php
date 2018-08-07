@@ -18,7 +18,8 @@ $db = new Database([
     'safe_filename'  => true,
     'read_only'      => false
 ]);
-$data = $db->query()->limit(3)->results();
+
+$data = $db->get($_GET['q']);
 ?>
 
 
@@ -43,26 +44,24 @@ $data = $db->query()->limit(3)->results();
 	<div class="row">
 
 		<article class="col-9">
-			<h1>Latest Articles</h1>
 
-      <?php foreach ($data as $key => $value): ?>
-
-        <a href='<?php echo "article?q={$value['slug']}"; ?>'><h3 class="mt-5"><?php echo($value['title']); ?></h3></a>
+        <h3 class="mt-5"><?php echo($data->title); ?></h3>
         <p class="text-muted">
           by fanitriastowo -
-          Posted on : <?php echo($value['tanggal']); ?>. -
-          Kategori : <?php echo($value['kategory']); ?>
+          Posted on : <?php echo($data->tanggal); ?>. -
+          Kategori : <?php echo($data->kategory); ?>
         </p>
         <hr>
-        <p class="text-justify"><?php echo($value['content']); ?></p>
+        <p class="text-justify"><?php echo($data->content); ?></p>
 
-      <?php endforeach; ?>
 		</article>
 
 		<side class="col-3">
+
 			<div class="sidebar">
 				<?php include 'template/sidebar.html'; ?>
 			</div>
+
 		</side>
 
 	</div>

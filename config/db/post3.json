@@ -1,0 +1,12 @@
+{
+    "__created_at": 1533660002,
+    "__updated_at": 1533660002,
+    "data": {
+        "tanggal": "25 January 2017",
+        "title": "Lorem Ipsum Dolor",
+        "kategory": "Thoughts",
+        "content": "\r\n\tLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\n\ttempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\n\tquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\n\tconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\n\tcillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\n\tproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n",
+        "kategory": "Thoughts",
+        "slug": "post3"
+    }
+}
