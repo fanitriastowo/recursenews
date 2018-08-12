@@ -2,22 +2,6 @@
 
 require 'config/db.php';
 
-use \Filebase\Database;
-use \Filebase\Query;
-use \Filebase\QueryLogic;
-use \Filebase\Format\Json;
-
-// setting the access and configration to your database
-$db = new Database([
-    'dir'            => 'config/db',
-    'backupLocation' => 'config/db/backup',
-    'format'         => Json::class,
-    'cache'          => false,
-    'cache_expires'  => 1800,
-    'pretty'         => true,
-    'safe_filename'  => true,
-    'read_only'      => false
-]);
 $data = $db->query()->limit(3)->results();
 ?>
 

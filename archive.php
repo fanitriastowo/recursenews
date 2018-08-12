@@ -1,3 +1,10 @@
+<?php
+
+require 'config/db.php';
+
+$data = $db->findAll();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -95,7 +102,9 @@
 					<div id="2015" class="collapse" aria-labelledby="heading2015" data-parent="#accordion">
 						<div class="card-body">
 							<ul>
-								<li><a href="#">Janji Programmer</a></li>
+								<?php foreach ($data as $key => $value): ?>
+									<li><a href="article?q=<?php echo($value->slug); ?>"><?php echo($value->title); ?></a></li>
+								<?php endforeach; ?>
 							</ul>
 						</div>
 					</div>
