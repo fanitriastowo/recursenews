@@ -2,23 +2,6 @@
 
 require 'config/db.php';
 
-use \Filebase\Database;
-use \Filebase\Query;
-use \Filebase\QueryLogic;
-use \Filebase\Format\Json;
-
-// setting the access and configration to your database
-$db = new Database([
-    'dir'            => 'config/db',
-    'backupLocation' => 'config/db/backup',
-    'format'         => Json::class,
-    'cache'          => false,
-    'cache_expires'  => 1800,
-    'pretty'         => true,
-    'safe_filename'  => true,
-    'read_only'      => false
-]);
-
 $data = $db->get($_GET['q']);
 ?>
 
@@ -29,9 +12,6 @@ $data = $db->get($_GET['q']);
 	<title>Recursenews | Programming Blog</title>
 
 	<?php include 'template/css.html'; ?>
-
-	<!-- custom stylesheet here -->
-	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 
@@ -52,6 +32,18 @@ $data = $db->get($_GET['q']);
           Kategori : <?php echo($data->kategory); ?>
         </p>
         <hr>
+
+        <?php if ($data->image != null): ?>
+        <div class="text-center img-source">
+            <img src="<?php echo $data->image; ?>" 
+            class="img-thumbnail">
+            <br>
+            Source from 
+            <a href="<?php echo $data->image; ?>" 
+            target="_blank">link</a>
+        </div>
+        <?php endif ?>
+
         <p class="text-justify"><?php echo($data->content); ?></p>
 
 		</article>

@@ -169,3 +169,9 @@ code {
 ul {
 	list-style-type: none;
 }
+
+.img-source {
+  margin-bottom: 30px;
+  font-style: italic;
+  font-weight: 150;
+}

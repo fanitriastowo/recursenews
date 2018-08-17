@@ -12,9 +12,6 @@ $data = $db->query()->limit(3)->results();
 	<title>Recursenews | Programming Blog</title>
 
 	<?php include 'template/css.html'; ?>
-
-	<!-- custom stylesheet here -->
-	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 
@@ -38,6 +35,15 @@ $data = $db->query()->limit(3)->results();
           Kategori : <?php echo($value['kategory']); ?>
         </p>
         <hr>
+
+        <?php if ($value['image'] != null): ?>
+        <div class="text-center img-source">
+            <img src="<?php echo $value['image']; ?>" 
+            class="img-thumbnail">
+            <br>
+        </div>
+        <?php endif ?>
+
         <p class="text-justify"><?php echo($value['content']); ?></p>
 
       <?php endforeach; ?>

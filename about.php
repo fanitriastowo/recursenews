@@ -5,8 +5,6 @@
 
   <?php include 'template/css.html'; ?>
 
-	<!-- custom stylesheet here -->
-	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 

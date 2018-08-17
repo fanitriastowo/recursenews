@@ -1,0 +1,12 @@
+{
+    "__created_at": 1533655440,
+    "__updated_at": 1533655440,
+    "data": {
+        "tanggal": "31 January 2015",
+        "title": "JUnit Tutorial",
+        "content": "\r\n\tLets test simple jUnit Framework.\r\n",
+        "kategory": "Java",
+        "slug": "junit_tutorial",
+        "image": "https://www.rishabhsoft.com/wp-content/uploads/2011/05/Entry-and-Exit-Criteria-for-Testing.jpg"
+    }
+}
