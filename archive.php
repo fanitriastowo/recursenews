@@ -26,86 +26,82 @@ $data = $db->findAll();
 
 			<h1>Archive:</h1>
 
-			<div id="accordion">
+			<div class="accordion" id="accordion_archive">
+			  
+			  <div class="card">
+			    <div class="card-header" id="heading2018">
+			      <h5 class="mb-0">
+			        <button class="btn btn-link" type="button" data-toggle="collapse" 
+				        data-target="#collapse2018" aria-expanded="true" aria-controls="collapse2018">
+			          2018
+			        </button>
+			      </h5>
+			    </div>
+			    <div id="collapse2018" class="collapse show" aria-labelledby="heading2018" 
+			    	data-parent="#accordion_archive">
+			      <div class="card-body">
+			        test
+			      </div>
+			    </div>
+			  </div>
 
-				<div class="card"> <!-- 2018 -->
-					<div class="card-header" id="heading2018">
-						<h5 class="mb-0">
-							<button class="btn btn-link" data-toggle="collapse" data-target="#2018" aria-expanded="true" aria-controls="2018">
-								2018
-							</button>
-						</h5>
-					</div>
-					<div id="2018" class="collapse show" aria-labelledby="heading2018" data-parent="#accordion">
-						<div class="card-body">
-							<ul>
-								<li><a href="#">article 1</a></li>
-								<li><a href="#">article 2</a></li>
-								<li><a href="#">article 3</a></li>
-								<li><a href="#">article 4</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
+			  <div class="card">
+			    <div class="card-header" id="heading2017">
+			      <h5 class="mb-0">
+			        <button class="btn btn-link" type="button" data-toggle="collapse" 
+				        data-target="#collapse2017" aria-expanded="true" aria-controls="collapse2017">
+			          2017
+			        </button>
+			      </h5>
+			    </div>
+			    <div id="collapse2017" class="collapse" aria-labelledby="heading2017" 
+			    	data-parent="#accordion_archive">
+			      <div class="card-body">
+			        test
+			      </div>
+			    </div>
+			  </div>
 
-				<div class="card">
-					<div class="card-header" id="heading2017">
-						<h5 class="mb-0">
-							<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#2017" aria-expanded="false" aria-controls="2017">
-								2017
-							</button>
-						</h5>
-					</div>
-					<div id="2017" class="collapse" aria-labelledby="heading2017" data-parent="#accordion">
-						<div class="card-body">
-							<ul>
-								<li><a href="#">article 1</a></li>
-								<li><a href="#">article 2</a></li>
-								<li><a href="#">article 3</a></li>
-								<li><a href="#">article 4</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
+			  <div class="card">
+			    <div class="card-header" id="heading2016">
+			      <h5 class="mb-0">
+			        <button class="btn btn-link" type="button" data-toggle="collapse" 
+				        data-target="#collapse2016" aria-expanded="true" aria-controls="collapse2016">
+			          2016
+			        </button>
+			      </h5>
+			    </div>
+			    <div id="collapse2016" class="collapse" aria-labelledby="heading2016" 
+			    	data-parent="#accordion_archive">
+			      <div class="card-body">
+			        test
+			      </div>
+			    </div>
+			  </div>
 
-				<div class="card">
-					<div class="card-header" id="heading2016">
-						<h5 class="mb-0">
-							<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#2016" aria-expanded="false" aria-controls="2016">
-								2016
-							</button>
-						</h5>
-					</div>
-					<div id="2016" class="collapse" aria-labelledby="heading2016" data-parent="#accordion">
-						<div class="card-body">
-							<ul>
-								<li><a href="#">article 1</a></li>
-								<li><a href="#">article 2</a></li>
-								<li><a href="#">article 3</a></li>
-								<li><a href="#">article 4</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-				<div class="card">
-					<div class="card-header" id="heading2015">
-						<h5 class="mb-0">
-							<button class="btn btn-link collapsed" data-toggle="collapse" data-target="#2015" aria-expanded="false" aria-controls="2015">
-								2015
-							</button>
-						</h5>
-					</div>
-					<div id="2015" class="collapse" aria-labelledby="heading2015" data-parent="#accordion">
-						<div class="card-body">
-							<ul>
-								<?php foreach ($data as $key => $value): ?>
-									<li><a href="article?q=<?php echo($value->slug); ?>"><?php echo($value->title); ?></a></li>
-								<?php endforeach; ?>
-							</ul>
-						</div>
-					</div>
-				</div>
+			  <div class="card">
+			    <div class="card-header" id="heading2015">
+			      <h5 class="mb-0">
+			        <button class="btn btn-link" type="button" data-toggle="collapse" 
+				        data-target="#collapse2015" aria-expanded="true" aria-controls="collapse2015">
+			          2015
+			        </button>
+			      </h5>
+			    </div>
+			    <div id="collapse2015" class="collapse" aria-labelledby="heading2015" 
+			    	data-parent="#accordion_archive">
+			      <div class="card-body">
+			        <ul>
+			        	<?php foreach ($data as $key => $value): ?>
+			        		<?php if (substr($value->tanggal, -4) == '2015'): ?>
+			        			<li><a href="<?php echo("article?q=") . $value->slug; ?>">
+				        			<?php echo $value->title; ?></a></li>
+			        		<?php endif ?>
+			        	<?php endforeach ?>
+			        </ul>
+			      </div>
+			    </div>
+			  </div>
 
 			</div>
 

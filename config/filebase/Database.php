@@ -1,5 +1,11 @@
 <?php  namespace Filebase;
 
+use Exception;
+use Filebase\Config;
+use Filebase\Cache;
+use Filebase\Filesystem;
+use Filebase\Document;
+use Filebase\Backup;
 
 class Database
 {
@@ -10,7 +16,7 @@ class Database
     * Stores the version of Filebase
     * use $db->getVersion()
     */
-    const VERSION = '1.0.18';
+    const VERSION = '1.0.20';
 
 
     //--------------------------------------------------------------------
@@ -22,9 +28,6 @@ class Database
     * \Filebase\Config
     */
     protected $config;
-
-
-    //--------------------------------------------------------------------
 
 
     /**
@@ -43,12 +46,12 @@ class Database
         {
             if (!@mkdir($this->config->dir, 0777, true))
             {
-                throw new \Exception(sprintf('`%s` doesn\'t exist and can\'t be created.', $this->config->dir));
+                throw new Exception(sprintf('`%s` doesn\'t exist and can\'t be created.', $this->config->dir));
             }
         }
         else if (!is_writable($this->config->dir))
         {
-            throw new \Exception(sprintf('`%s` is not writable.', $this->config->dir));
+            throw new Exception(sprintf('`%s` is not writable.', $this->config->dir));
         }
     }
 
@@ -149,6 +152,27 @@ class Database
 
 
     /**
+    * has
+    *
+    * Check if a record already exists
+    *
+    * @param mixed $id
+    *
+    * @return bool true/false
+    */
+    public function has($id)
+    {
+        $format = $this->config->format;
+        $record = Filesystem::read( $this->config->dir.'/'.Filesystem::validateName($id, $this->config->safe_filename).'.'.$format::getFileExtension() );
+
+        return $record ? true : false;
+    }
+
+
+    //--------------------------------------------------------------------
+
+
+    /**
     * backup
     *
     * @param string $location (optional)
@@ -222,7 +246,7 @@ class Database
     {
         if ($this->config->read_only === true)
         {
-            throw new \Exception("This database is set to be read-only. No modifications can be made.");
+            throw new Exception("This database is set to be read-only. No modifications can be made.");
         }
 
         $format         = $this->config->format;
@@ -250,6 +274,8 @@ class Database
 
         if (Filesystem::write($file_location, $data))
         {
+            $this->flushCache();
+
             return $document;
         }
         else
@@ -303,12 +329,16 @@ class Database
     {
         if ($this->config->read_only === true)
         {
-            throw new \Exception("This database is set to be read-only. No modifications can be made.");
+            throw new Exception("This database is set to be read-only. No modifications can be made.");
         }
 
         $format = $this->config->format;
 
-        return Filesystem::delete($this->config->dir.'/'.Filesystem::validateName($document->getId(), $this->config->safe_filename).'.'.$format::getFileExtension());
+        $d = Filesystem::delete($this->config->dir.'/'.Filesystem::validateName($document->getId(), $this->config->safe_filename).'.'.$format::getFileExtension());
+
+        $this->flushCache();
+
+        return $d;
     }
 
 
@@ -342,7 +372,7 @@ class Database
     {
         if ($this->config->read_only === true)
         {
-            throw new \Exception("This database is set to be read-only. No modifications can be made.");
+            throw new Exception("This database is set to be read-only. No modifications can be made.");
         }
 
         if ($confirm===true)
@@ -360,12 +390,12 @@ class Database
             }
             else
             {
-                throw new \Exception("Could not delete all database files in ".$this->config->dir);
+                throw new Exception("Could not delete all database files in ".$this->config->dir);
             }
         }
         else
         {
-            throw new \Exception("Database Flush failed. You must send in TRUE to confirm action.");
+            throw new Exception("Database Flush failed. You must send in TRUE to confirm action.");
         }
     }
 
@@ -380,8 +410,11 @@ class Database
     */
     public function flushCache()
     {
-        $cache = new Cache($this);
-        $cache->flush();
+        if ($this->getConfig()->cache===true)
+        {
+            $cache = new Cache($this);
+            $cache->flush();
+        }
     }
 
 
