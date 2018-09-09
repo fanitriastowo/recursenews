@@ -26,8 +26,10 @@ $data = $db->query()->limit(3)->results();
 		<article class="col-9">
 			<h1>Latest Articles</h1>
 
+      <?php // loop through articles ?>
       <?php foreach ($data as $key => $value): ?>
 
+        <?php // linked title ?>
         <a href='<?php echo "article?q={$value['slug']}"; ?>'><h3 class="mt-5"><?php echo($value['title']); ?></h3></a>
         <p class="text-muted">
           by fanitriastowo -
@@ -36,6 +38,7 @@ $data = $db->query()->limit(3)->results();
         </p>
         <hr>
 
+        <?php // check image ?>
         <?php if ($value['image'] != null): ?>
         <div class="text-center img-source">
             <img src="<?php echo $value['image']; ?>" 
@@ -44,7 +47,10 @@ $data = $db->query()->limit(3)->results();
         </div>
         <?php endif ?>
 
-        <p class="text-justify"><?php echo($value['content']); ?></p>
+        <?php // readfile ?>
+        <?php $file = fopen($value['content'], "r") or die("Unable to open file!"); ?>
+        <p class="text-justify"><?php echo fread($file, filesize($value['content'])); ?></p>
+        <?php fclose($file); ?>
 
       <?php endforeach; ?>
 		</article>

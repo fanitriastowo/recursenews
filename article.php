@@ -44,7 +44,10 @@ $data = $db->get($_GET['q']);
         </div>
         <?php endif ?>
 
-        <p class="text-justify"><?php echo($data->content); ?></p>
+        <?php // readfile ?>
+        <?php $file = fopen($data->content, "r") or die("Unable to open file!"); ?>
+        <p class="text-justify"><?php echo fread($file,filesize($data->content)); ?></p>
+        <?php fclose($file); ?>
 
 		</article>
 

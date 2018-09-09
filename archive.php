@@ -40,7 +40,14 @@ $data = $db->findAll();
 			    <div id="collapse2018" class="collapse show" aria-labelledby="heading2018" 
 			    	data-parent="#accordion_archive">
 			      <div class="card-body">
-			        test
+			        <ul>
+			        	<?php foreach ($data as $key => $value): ?>
+			        		<?php if (substr($value->tanggal, -4) == '2018'): ?>
+			        			<li><a href="<?php echo("article?q=") . $value->slug; ?>">
+				        			<?php echo $value->title; ?></a></li>
+			        		<?php endif ?>
+			        	<?php endforeach ?>
+			        </ul>
 			      </div>
 			    </div>
 			  </div>
@@ -57,7 +64,14 @@ $data = $db->findAll();
 			    <div id="collapse2017" class="collapse" aria-labelledby="heading2017" 
 			    	data-parent="#accordion_archive">
 			      <div class="card-body">
-			        test
+			        <ul>
+			        	<?php foreach ($data as $key => $value): ?>
+			        		<?php if (substr($value->tanggal, -4) == '2017'): ?>
+			        			<li><a href="<?php echo("article?q=") . $value->slug; ?>">
+				        			<?php echo $value->title; ?></a></li>
+			        		<?php endif ?>
+			        	<?php endforeach ?>
+			        </ul>
 			      </div>
 			    </div>
 			  </div>
@@ -74,7 +88,14 @@ $data = $db->findAll();
 			    <div id="collapse2016" class="collapse" aria-labelledby="heading2016" 
 			    	data-parent="#accordion_archive">
 			      <div class="card-body">
-			        test
+			        <ul>
+			        	<?php foreach ($data as $key => $value): ?>
+			        		<?php if (substr($value->tanggal, -4) == '2016'): ?>
+			        			<li><a href="<?php echo("article?q=") . $value->slug; ?>">
+				        			<?php echo $value->title; ?></a></li>
+			        		<?php endif ?>
+			        	<?php endforeach ?>
+			        </ul>
 			      </div>
 			    </div>
 			  </div>
