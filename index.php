@@ -1,5 +1,6 @@
 <?php
 
+$IS_INDEX = TRUE;
 require 'config/db.php';
 
 $data = $db->query()->limit(3)->results();
@@ -48,9 +49,7 @@ $data = $db->query()->limit(3)->results();
         <?php endif ?>
 
         <?php // readfile ?>
-        <?php $file = fopen($value['content'], "r") or die("Unable to open file!"); ?>
-        <p class="text-justify"><?php echo fread($file, filesize($value['content'])); ?></p>
-        <?php fclose($file); ?>
+        <p class="text-justify"><?php include $value['content']; ?></p>
 
       <?php endforeach; ?>
 		</article>

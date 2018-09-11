@@ -2,8 +2,8 @@ Kali ini kita mengimplementasikan Junit Framework kedalam project Java yang suda
 Pertama download library Junit <a href="https://junit.org/junit4/" target="_blank">disini</a>.
 Disini saya masih menggunakan JUnit 4.
 
-<span class="read_more"></span>
 </br>
+<?php if (!$IS_INDEX) : ?>
 
 <div class="text-center img-source">
   <img src="img/junit_tutorial/create_project.PNG" alt="No Image" class="img-thumbnail">
@@ -40,4 +40,6 @@ Disini saya masih menggunakan JUnit 4.
 <div class="text-center img-source">
   <img src="img/junit_tutorial/result.PNG" alt="No Image" class="img-thumbnail">
 </div>
-
+<?php else: ?>
+<a href="article?q=junit_tutorial">Read more</a>
+<?php endif ?>

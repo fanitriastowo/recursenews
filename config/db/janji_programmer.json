@@ -4,7 +4,7 @@
     "data": {
         "tanggal": "25 January 2015",
         "title": "Janji Programmer",
-        "content": "config/content/janji_programmer",
+        "content": "config/content/janji_programmer.php",
         "kategory": "Thoughts",
         "slug": "janji_programmer",
         "image": null

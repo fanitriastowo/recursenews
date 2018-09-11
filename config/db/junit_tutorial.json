@@ -4,7 +4,7 @@
     "data": {
         "tanggal": "31 January 2015",
         "title": "JUnit Tutorial",
-        "content": "config/content/junit_tutorial",
+        "content": "config/content/junit_tutorial.php",
         "kategory": "Java",
         "slug": "junit_tutorial",
         "image": "https://www.rishabhsoft.com/wp-content/uploads/2011/05/Entry-and-Exit-Criteria-for-Testing.jpg"
