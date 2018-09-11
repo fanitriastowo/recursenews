@@ -1,5 +1,6 @@
 <?php
 
+$IS_INDEX = FALSE;
 require 'config/db.php';
 
 $data = $db->get($_GET['q']);
@@ -45,9 +46,7 @@ $data = $db->get($_GET['q']);
         <?php endif ?>
 
         <?php // readfile ?>
-        <?php $file = fopen($data->content, "r") or die("Unable to open file!"); ?>
-        <p class="text-justify"><?php echo fread($file,filesize($data->content)); ?></p>
-        <?php fclose($file); ?>
+        <p class="text-justify"><?php include $data->content; ?></p>
 
 		</article>
 
