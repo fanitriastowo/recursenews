@@ -3,7 +3,7 @@ Pertama download library Junit <a href="https://junit.org/junit4/" target="_blan
 Disini saya masih menggunakan <strong>JUnit 4</strong> dan <strong>Netbeans 8.2</strong>.
 
 </br>
-<?php if (!$IS_INDEX) : ?>
+<?php if (!$IS_NEEDED_READMORE) : ?>
 
 <p>1. Pertama buat project baru. Disini saya memilih Java Desktop project.</p>
 <div class="text-center img-source">

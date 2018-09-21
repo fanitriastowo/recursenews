@@ -3,16 +3,16 @@
 $IS_NEEDED_READMORE = TRUE;
 require 'config/db.php';
 
-$data = $db->query()->limit(3)->results();
+$data = $db->query()->where('category','=',$_GET["q"])->results();
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Recursenews | Programming Blog</title>
+  <title>Recursenews | Programming Blog</title>
 
-	<?php include 'template/css.html'; ?>
+  <?php include 'template/css.html'; ?>
 </head>
 <body>
 
@@ -22,10 +22,9 @@ $data = $db->query()->limit(3)->results();
 <!-- Begin page content -->
 <main role="main" class="container">
 
-	<div class="row">
-
-		<article class="col-9">
-			<h1>Latest Articles</h1>
+  <div class="row">
+    <article class="col-9">
+      <h1>Kategori: <?php echo $_GET["q"]; ?></h1>
 
       <?php // loop through articles ?>
       <?php foreach ($data as $key => $value): ?>
@@ -53,15 +52,15 @@ $data = $db->query()->limit(3)->results();
         <p class="text-justify"><?php include $value['content']; ?></p>
 
       <?php endforeach; ?>
-		</article>
+    </article>
 
-		<side class="col-3">
-			<div class="sidebar">
-				<?php include 'template/sidebar.html'; ?>
-			</div>
-		</side>
+    <side class="col-3">
+      <div class="sidebar">
+        <?php include 'template/sidebar.html'; ?>
+      </div>
+    </side>
 
-	</div>
+  </div>
 </main>
 
 <!-- include footer -->

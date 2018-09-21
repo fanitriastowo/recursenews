@@ -1,6 +1,6 @@
 <?php
 
-$IS_INDEX = FALSE;
+$IS_NEEDED_READMORE = FALSE;
 require 'config/db.php';
 
 $data = $db->get($_GET['q']);
@@ -30,7 +30,8 @@ $data = $db->get($_GET['q']);
         <p class="text-muted">
           by fanitriastowo -
           Posted on : <?php echo($data->tanggal); ?>. -
-          Kategori : <?php echo($data->kategory); ?>
+          Kategori : <a href="category?q=<?php echo $data->category; ?>">
+            <?php echo $data->category; ?></a>
         </p>
         <hr>
 
