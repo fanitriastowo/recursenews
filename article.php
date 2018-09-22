@@ -6,7 +6,6 @@ require 'config/db.php';
 $data = $db->get($_GET['q']);
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

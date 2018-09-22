@@ -3,7 +3,7 @@
 $IS_NEEDED_READMORE = TRUE;
 require 'config/db.php';
 
-$data = $db->query()->where('category','=',$_GET["q"])->results();
+$data = $db->query()->where('category','=',$_GET["q"])->limit(10)->results();
 ?>
 
 
